@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineServiceSimulator", "LineServiceSimulator.csproj", "{22F1E765-20A1-4D61-97B7-BF479574FE9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBearPlastics", "..\BigBearPlastics\BigBearPlastics.csproj", "{473822AD-225F-4B4C-AAC4-8A6763F06FCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22F1E765-20A1-4D61-97B7-BF479574FE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F1E765-20A1-4D61-97B7-BF479574FE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F1E765-20A1-4D61-97B7-BF479574FE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F1E765-20A1-4D61-97B7-BF479574FE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{473822AD-225F-4B4C-AAC4-8A6763F06FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{473822AD-225F-4B4C-AAC4-8A6763F06FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{473822AD-225F-4B4C-AAC4-8A6763F06FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{473822AD-225F-4B4C-AAC4-8A6763F06FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85005E16-0101-462E-9B56-58840BD50E35}
+	EndGlobalSection
+EndGlobal
