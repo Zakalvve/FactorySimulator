@@ -1,4 +1,6 @@
-﻿namespace BigBearPlastics
+﻿using LineServiceSimulator.Machines;
+
+namespace BigBearPlastics
 {
     public abstract class BaseCommand : ICommand
     {

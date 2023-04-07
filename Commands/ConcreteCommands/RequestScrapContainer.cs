@@ -1,4 +1,6 @@
-﻿namespace BigBearPlastics
+﻿using LineServiceSimulator.Machines;
+
+namespace BigBearPlastics
 {
     public class RequestScrapContainer : BaseCommand
     {
