@@ -1,7 +1,7 @@
 ﻿namespace BigBearPlastics
 {
     public class CNCModel : ISimulatableMachine {
-        public CNCModel(int id, int priority, Queue<IJobModel> jobs,IJobModel curJob, IServicer servicer, IContainer? input = null, IContainer? output = null, IContainer? scrap = null) {
+        public CNCModel(int id, int priority, Queue<IJobModel> jobs,IJobModel curJob, IServicer servicer, IMessageLogger logger, IContainer? input = null, IContainer? output = null, IContainer? scrap = null) {
             ID = id;
             Priority = priority;
             Jobs = jobs;
@@ -10,10 +10,13 @@
             OutputContainer = output;
             ScrapContainer = scrap;
             Servicer = servicer;
-            _currentState = new IdleState(this);
+            _logger = logger;
+            _logger.Prefix = $"CNC{ID}:";
+            _currentState = new IdleState(this, _logger);
             _currentState.TransitionTo();
         }
 
+        private IMessageLogger _logger;
         public int Uptime { get; set; } = 0;
         public int Downtime { get; set; } = 0;
         public int ID { get; set; }
@@ -30,13 +33,6 @@
         private bool AllContainersValid { get { return !InputContainer.IsEmpty && !OutputContainer.IsFull && !ScrapContainer.IsFull; } }
         public IServicer Servicer { get; set; }
 
-        public int SecondsPerPart {
-            get {
-                if (CurrentJob == null) return -1;
-                return (int)(1 / (CurrentJob.PartsPerHour / (60 * 60)));
-            }
-        }
-
         public void Tick() {
             _currentState.Tick();
         }
@@ -49,10 +45,6 @@
         public void ChangeState(IState state) {
             _currentState = state;
             _currentState.TransitionTo();
-        }
-
-        public void LogMessage(string message) {
-            Console.WriteLine($"CNC{ID}: {message}");
         }
 
         public bool NextJob() {
@@ -89,6 +81,10 @@
 
         public void Request(List<ServiceRequest> requests) {
             Servicer.AcceptRequest(Priority,requests);
+        }
+
+        public void CloseReport(int simDuration) {
+            _logger.LogSignedMessage($"Uptime {(int)((Uptime / (double)(simDuration)) * 100)}%");
         }
     }
 }
