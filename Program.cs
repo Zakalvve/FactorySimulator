@@ -5,22 +5,20 @@ namespace LineServiceSimulator
     internal class Program
     {
         static void Main(string[] args) {
+            RunAllAsync().GetAwaiter().GetResult();
+        }
 
-            List<ISimulatableMachine> machines = Factory.CreateAllMachines();
-            IServicer servicer = Factory.GetServicer();
+        static Task RunAllAsync() {
+            return Task.WhenAll(new[] { RunSimulation() });
+        }
 
-            for (int runTime = EightHours(); runTime > 0; runTime--) {
-                machines.ForEach(machine => {
-                    machine.Tick();
-                });
-                servicer.Tick();
-            }
+        static async Task RunSimulation() {
+            FactorySimulation sim = new FactorySimulation(EightHours());
 
-            machines.ForEach(machine => {
-                machine.LogMessage($"Uptime {(int)((machine.Uptime/(double)EightHours())*100)}%");
-            });
+            await sim.Simulate();
 
-            Console.WriteLine($"FLT: Uptime {(int)((servicer.Uptime/(double)EightHours())*100)}%");
+            //use results
+            Console.WriteLine("Simulation Complete");
         }
 
         static int EightHours() {
