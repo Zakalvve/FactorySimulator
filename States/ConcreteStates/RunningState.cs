@@ -1,31 +1,28 @@
 ﻿namespace BigBearPlastics
 {
-    public class RunningState : IState
+    public class RunningState : BaseState
     {
-        private IMachine _context;
         private int _timeTillNextPart;
 
-        public RunningState(IMachine context)
-        {
-            _context = context;
-        }
+        public RunningState(IMachine context,IMessageLogger logger) : base(context,logger) { }
+
         private void StartNextPart() {
-            _timeTillNextPart = _context.SecondsPerPart;
+            _timeTillNextPart = _context.CurrentJob.SecondsPerPart;
             _context.InputContainer.Take(_context.CurrentJob.Parts.Count);
         }
-        public void TransitionTo() {
-            _context.LogMessage("Transition to RUNNING");
+        public override void TransitionTo() {
+            _logger.LogSignedMessage("Transition to RUNNING");
             StartNextPart();
         }
         //one tick of the simulation
-        public void Tick()
+        public override void Tick()
         {
             _timeTillNextPart--;
             _context.Uptime++;
             if (_timeTillNextPart <= 0)
             {
                 _context.CurrentJob.Parts.ForEach(part => {
-                    _context.LogMessage($"Created new part {part.Name}");
+                    _logger.LogSignedMessage($"Created new part {part.Name}");
                 });
                 
                 //update job
@@ -39,19 +36,23 @@
                 //check for conditions that would stop the machine from running
                 //no more parts, output container is full or scrap bin is full, job complete
                 if (_context.CurrentJob.IsComplete) {
-                    _context.LogMessage("Job Complete");
-                    _context.ChangeState(new ToolChangeState(_context));
+                    _logger.LogSignedMessage("Job Complete");
+                    _context.ChangeState(new ToolChangeState(_context, _logger));
                     return;
                 }
                 if (!_context.CanRun) {
                     //change state to idle
-                    _context.ChangeState(new IdleState(_context));
+                    _context.ChangeState(new IdleState(_context, _logger));
                     return;
                 }
 
                 //continue operation
                 StartNextPart();
             }
+        }
+
+        public override void Record() {
+            throw new NotImplementedException();
         }
     }
 }

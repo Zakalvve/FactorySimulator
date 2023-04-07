@@ -1,23 +1,20 @@
 ﻿
 namespace BigBearPlastics
 {
-    public class ToolChangeState : IState
+    public class ToolChangeState : BaseState
     {
         private int durationInSeconds = 15 * 60;
         private int currentDuration = 0;
 
-        private IMachine _context;
-        public ToolChangeState(IMachine context) {
-            _context = context;
-        }
+        public ToolChangeState(IMachine context,IMessageLogger logger) : base(context,logger) { }
 
-        public void TransitionTo() {
-            _context.LogMessage("Transition to TOOL CHANGE");
+        public override void TransitionTo() {
+            _logger.LogSignedMessage("Transition to TOOL CHANGE");
             _context.InputContainer = null;
             _context.OutputContainer = null;
             _context.ScrapContainer = null;
             if (!_context.NextJob()) {
-                _context.ChangeState(new ShutdownState(_context));
+                _context.ChangeState(new ShutdownState(_context, _logger));
                 return;
             }
 
@@ -30,16 +27,20 @@ namespace BigBearPlastics
             });
         }
 
-        public void Tick() {
+        public override void Tick() {
             currentDuration++;
             _context.Downtime++;
             if (currentDuration > durationInSeconds) {
                 //change complete
                 if (_context.CanRun) {
-                    _context.ChangeState(new RunningState(_context));
+                    _context.ChangeState(new RunningState(_context, _logger));
                     return;
                 }
             }
+        }
+
+        public override void Record() {
+            throw new NotImplementedException();
         }
     }
 }

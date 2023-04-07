@@ -1,18 +1,19 @@
 ﻿namespace BigBearPlastics
 {
-    public class ShutdownState : IState
+    public class ShutdownState : BaseState
     {
-        private IMachine _context;
-        public ShutdownState(IMachine context) {
-            _context = context;
+        public ShutdownState(IMachine context,IMessageLogger logger) : base(context,logger) { }
+
+        public override void Record() {
+            throw new NotImplementedException();
         }
 
-        public void Tick() {
+        public override void Tick() {
             _context.Downtime++;
         }
 
-        public void TransitionTo() {
-            _context.LogMessage("SHUTDOWN");
+        public override void TransitionTo() {
+           _logger.LogSignedMessage("SHUTDOWN");
         }
     }
 }
