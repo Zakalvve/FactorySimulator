@@ -10,5 +10,6 @@
         public int ScrapPerScrapContainer { get; set; }
         public double PartsPerHour { get; set; }
         public bool IsComplete { get; }
+        public int SecondsPerPart { get; }
     }
 }

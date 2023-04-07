@@ -1,9 +1,7 @@
 ﻿namespace BigBearPlastics
 {
-    public class JobModel : IJobModel
-    {
-        public JobModel(List<IPartModel> parts, int partsRequired, int ppInputContainer, int ppOutputContainer, int spScrapContainer, double pph)
-        {
+    public class JobModel : IJobModel {
+        public JobModel(List<IPartModel> parts,int partsRequired,int ppInputContainer,int ppOutputContainer,int spScrapContainer,double pph) {
             Parts = parts;
             NumberOfPartsRequired = partsRequired;
             PartsPerInputContainer = ppInputContainer;
@@ -19,6 +17,7 @@
         public int PartsPerOutputContainer { get; set; }
         public int ScrapPerScrapContainer { get; set; }
         public double PartsPerHour { get; set; }
-        public bool IsComplete { get { return CurrentPartsProduced >= NumberOfPartsRequired;}}
+        public bool IsComplete { get { return CurrentPartsProduced >= NumberOfPartsRequired; } }
+        public int SecondsPerPart { get { return (int)(1 / (PartsPerHour / (60 * 60))); } }
     }
 }
