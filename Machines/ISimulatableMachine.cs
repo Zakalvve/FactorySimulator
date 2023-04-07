@@ -1,4 +1,4 @@
 ﻿namespace BigBearPlastics
 {
-    public interface ISimulatableMachine: ISimulatable, IMachine { }
+    public interface ISimulatableMachine: IReportingSimulatable, IMachine { }
 }

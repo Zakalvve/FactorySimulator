@@ -1,13 +1,17 @@
 ﻿namespace BigBearPlastics
 {
+    //SRP: Responsible for the creation of all objects.
     public class Factory
     {
-        public static IServicer? GlobalServicerInstance = null;
-        public static IServicer GetServicer() {
+        public static ISimulatableServicer? GlobalServicerInstance = null;
+        public static ISimulatableServicer GetServicer() {
             if (GlobalServicerInstance == null) {
-                GlobalServicerInstance = new FLT(new PriorityQueue<ServiceRequest,int>());
+                GlobalServicerInstance = new FLT(new PriorityQueue<ServiceRequest,int>(), CreateLogger());
             }
             return GlobalServicerInstance;
+        }
+        public static IMessageLogger CreateLogger() {
+            return new MessageLogger();
         }
         public static IPartModel CreatePart(string name) {
             return new PartModel(name);
@@ -27,7 +31,7 @@
 
         public static ISimulatableMachine CreateCNC(int id, int priority, Queue<IJobModel> jobs) {
             IJobModel firstJob = jobs.Dequeue();
-            return new CNCModel(id, priority, jobs, firstJob, GetServicer(), CreateContainerInverted(firstJob.PartsPerInputContainer),CreateContainer(firstJob.PartsPerOutputContainer),CreateContainer(firstJob.ScrapPerScrapContainer));
+            return new CNCModel(id, priority, jobs, firstJob, GetServicer(), CreateLogger(), CreateContainerInverted(firstJob.PartsPerInputContainer),CreateContainer(firstJob.PartsPerOutputContainer),CreateContainer(firstJob.ScrapPerScrapContainer));
         }
 
         public static List<ISimulatableMachine> CreateAllMachines() {
