@@ -37,11 +37,6 @@
             _currentState.Tick();
         }
 
-        //used to record data
-        public void Record() {
-            throw new NotImplementedException();
-        }
-
         public void ChangeState(IState state) {
             _currentState = state;
             _currentState.TransitionTo();
@@ -85,6 +80,10 @@
 
         public void CloseReport(int simDuration) {
             _logger.LogSignedMessage($"Uptime {(int)((Uptime / (double)(simDuration)) * 100)}%");
+        }
+
+        public void Record(ISimulationAnalyst analyst) {
+            analyst.Visit(this);
         }
     }
 }

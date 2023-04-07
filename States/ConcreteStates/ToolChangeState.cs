@@ -39,8 +39,8 @@ namespace BigBearPlastics
             }
         }
 
-        public override void Record() {
-            throw new NotImplementedException();
+        public override void Record(ISimulationAnalyst analyst) {
+            analyst.Visit(this);
         }
     }
 }

@@ -9,7 +9,7 @@
             _logger = logger;
         }
 
-        public abstract void Record();
+        public abstract void Record(ISimulationAnalyst analyst);
 
         public abstract void Tick();
 

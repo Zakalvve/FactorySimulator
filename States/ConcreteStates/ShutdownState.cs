@@ -4,8 +4,8 @@
     {
         public ShutdownState(IMachine context,IMessageLogger logger) : base(context,logger) { }
 
-        public override void Record() {
-            throw new NotImplementedException();
+        public override void Record(ISimulationAnalyst analyst) {
+            analyst.Visit(this);
         }
 
         public override void Tick() {

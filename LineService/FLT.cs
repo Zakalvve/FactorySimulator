@@ -30,10 +30,6 @@
             }
         }
 
-        public void Record() {
-            throw new NotImplementedException();
-        }
-
         public void Tick() {
             if (_currentJob != null) {
                 _timeSinceStartJob++;
@@ -57,6 +53,10 @@
 
         public void CloseReport(int simDuration) {
             _logger.LogSignedMessage($"Uptime {(int)((Uptime / (double)(simDuration)) * 100)}%");
+        }
+
+        public void Record(ISimulationAnalyst analyst) {
+            analyst.Visit(this);
         }
     }
 }
