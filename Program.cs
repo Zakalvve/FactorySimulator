@@ -15,7 +15,7 @@ namespace LineServiceSimulator
         static async Task RunSimulation() {
             FactorySimulation sim = new FactorySimulation(EightHours());
 
-            await sim.Simulate();
+            await sim.SimulateAsync();
 
             //use results
             Console.WriteLine("Simulation Complete");

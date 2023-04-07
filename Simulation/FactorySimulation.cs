@@ -8,29 +8,39 @@ namespace BigBearPlastics
 {
     public class FactorySimulation
     {
+        private List<IReportingSimulatable> _sims;
         private int _simDuration;
         public FactorySimulation(int duration/*More sim settings could go here (sim settings model?)*/) {
             _simDuration = duration;
         }
-        public Task Simulate() {
+        public Task SimulateAsync() {
             return Task.Run(Simulation);
         }
-        private List<IReportingSimulatable> InitializeSimulation() {
-            List<IReportingSimulatable> sims = Factory.CreateAllMachines().Cast<IReportingSimulatable>().ToList();
-            sims.Add(Factory.GetServicer());
-            return sims;
+        public void Simulate() {
+            Simulation();
         }
         private void Simulation() {
 
-            List<IReportingSimulatable> sims = InitializeSimulation();
+            InitializeSimulation();
 
+            RunSim();
+
+            CloseReport();
+        }
+        private void InitializeSimulation() {
+            _sims = Factory.CreateAllMachines().Cast<IReportingSimulatable>().ToList();
+            _sims.Add(Factory.GetServicer());
+        }
+
+        public void RunSim() {
             for (int runTime = _simDuration; runTime > 0; runTime--) {
-                sims.ForEach(sim => {
+                _sims.ForEach(sim => {
                     sim.Tick();
                 });
             }
-
-            sims.ForEach(sim => {
+        }
+        public void CloseReport() {
+            _sims.ForEach(sim => {
                 sim.CloseReport(_simDuration);
             });
         }
