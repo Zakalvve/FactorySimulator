@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BigBearPlastics.RequestInputContainer">
+    <Position X="12.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ConcreteCommands\RequestInputContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.RequestOutputContainer">
+    <Position X="14.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ConcreteCommands\RequestOutputContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.RequestScrapContainer">
+    <Position X="17" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ConcreteCommands\RequestScrapContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.BaseCommand">
+    <Position X="14.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Commands\BaseCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.ContainerModel" BaseTypeListCollapsed="true">
+    <Position X="22.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJAAAAAAAAABAAAAAAAAAAAAgAAAAAIAAEAAgAAAAA=</HashCode>
+      <FileName>Containers\ContainerModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BigBearPlastics.JobModel" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CRAAgAAAAAAgAAAAQBAAAAAAAIIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Jobs\JobModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BigBearPlastics.FLTModel" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAABAACAAAAAAAAAAAAAAAIAAAABAAAAAAAAAARAA=</HashCode>
+      <FileName>LineService\FLTModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.ServiceRequest">
+    <Position X="24.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAEAAAAAAAAAAAAgBAQAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>LineService\ServiceRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.MessageLogger" BaseTypeListCollapsed="true">
+    <Position X="24.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Logging\MessageLogger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BigBearPlastics.CNCModel" BaseTypeListCollapsed="true">
+    <Position X="19" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgCAAAAiAAAjgAEAECAAAgAMAAAgBAIAAAIAAAgTBA=</HashCode>
+      <FileName>Machines\CNCModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.PartModel" BaseTypeListCollapsed="true">
+    <Position X="19" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parts\PartModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.KeyPerformanceIndicators">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAQAAAAAAAAACAAAA=</HashCode>
+      <FileName>Performance\KeyPerformanceIndicators.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.MachinePerformanceIndicators">
+    <Position X="12.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Performance\MachinePerformanceIndicators.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.MachinePerformanceModel">
+    <Position X="22.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Performance\MachinePerformanceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.ServicerPerformanceIndicators">
+    <Position X="14.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAQgA=</HashCode>
+      <FileName>Performance\ServicerPerformanceIndicators.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.ServicerPerformanceModel">
+    <Position X="26" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Performance\ServicerPerformanceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.FactorySimulation" BaseTypeListCollapsed="true">
+    <Position X="26" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAADAAAAAEAAAABAAMAAAAAAAABAAIABAAAAAA=</HashCode>
+      <FileName>Simulation\FactorySimulation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BigBearPlastics.SimulationClock" BaseTypeListCollapsed="true">
+    <Position X="22.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAhAAAAgAAAAAAAAAEAAAAIAAAAAAAQAAAAgAAAAwA=</HashCode>
+      <FileName>Simulation\SimulationClock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BigBearPlastics.IdleState">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAARAA=</HashCode>
+      <FileName>States\ConcreteStates\IdleState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.RunningState">
+    <Position X="7.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAACAAAgRAA=</HashCode>
+      <FileName>States\ConcreteStates\RunningState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.ShutdownState">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAARAA=</HashCode>
+      <FileName>States\ConcreteStates\ShutdownState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.ToolChangeState">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAABAAAAAAAIARAA=</HashCode>
+      <FileName>States\ConcreteStates\ToolChangeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigBearPlastics.BaseState">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAIAAAAABAAAAAAAAARAA=</HashCode>
+      <FileName>States\BaseState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.SimulationAnalyst" BaseTypeListCollapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAICAAAAAAA=</HashCode>
+      <FileName>Visitors\SimulationAnalyst.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BigBearPlastics.Factory">
+    <Position X="27.75" Y="1.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAoAAgAEAAAhAAAAAEBIAQAACAAAEAAAAICAAAAA=</HashCode>
+      <FileName>Factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineServiceSimulator.Simulation.Output.SimulationResult" BaseTypeListCollapsed="true">
+    <Position X="24.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAACAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEBA=</HashCode>
+      <FileName>Simulation\Output\SimulationResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LineServiceSimulator.Program">
+    <Position X="26" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BigBearPlastics.ICommand">
+    <Position X="19" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ICommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IContainer">
+    <Position X="20.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJAAAAAAAAABAAAAAAAAAAAAgAAAAAIAAEAAgAAAAA=</HashCode>
+      <FileName>Containers\IContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IJobModel">
+    <Position X="22.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CRAAgAAAAAAgAAAAQBAAAAAAAIIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Jobs\IJobModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IServicer">
+    <Position X="1.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>LineService\IServicer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.ISimulatableServicer" Collapsed="true">
+    <Position X="2.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LineService\ISimulatableServicer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IMessageLogger">
+    <Position X="24.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Logging\IMessageLogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IMachine">
+    <Position X="10.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgCAAAAgAAAggAEAEAAAAgAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Machines\IMachine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IServicableMachine">
+    <Position X="9" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAACAAAAACAAAAAEAAAgAAIAAAAAAAgBAA=</HashCode>
+      <FileName>Machines\IServicableMachine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.ISimulatableMachine" Collapsed="true">
+    <Position X="7.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Machines\ISimulatableMachine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IPartModel">
+    <Position X="19" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parts\IPartModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IKeyPerformaceIndicators">
+    <Position X="5.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Performance\IKeyPerformaceIndicators.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IMachinePerformanceIndicators">
+    <Position X="6.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAgA=</HashCode>
+      <FileName>Performance\IMachinePerformanceIndicators.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IServicerPerformanceIndicators">
+    <Position X="4.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAQgA=</HashCode>
+      <FileName>Performance\IServicerPerformanceIndicators.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IJsonParser">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Simulation\Output\IJsonParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IReportingSimulatable">
+    <Position X="4" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Simulation\IReportingSimulatable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.ISimulatable">
+    <Position X="5.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAA=</HashCode>
+      <FileName>Simulation\ISimulatable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.ISimulation">
+    <Position X="20.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAABAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Simulation\ISimulation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.ISimulationClock">
+    <Position X="24.25" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAgAAAAAAAAAEAAAAAAAAAAAAQAAAAAAAAAwA=</HashCode>
+      <FileName>Simulation\ISimulationClock.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IState">
+    <Position X="6.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>States\IState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.IStateful">
+    <Position X="11.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>States\IStateful.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BigBearPlastics.ISimulationAnalyst">
+    <Position X="22.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAIAAAAAAAA=</HashCode>
+      <FileName>Visitors\ISimulationAnalyst.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LineServiceSimulator.Simulation.Output.ISimulationResult">
+    <Position X="14" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBA=</HashCode>
+      <FileName>Simulation\Output\ISimulationResult.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BigBearPlastics.RequestType">
+    <Position X="16.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAAAAAEAAA=</HashCode>
+      <FileName>LineService\ServiceRequest.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
