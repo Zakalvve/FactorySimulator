@@ -1,31 +1,41 @@
-﻿namespace BigBearPlastics
+﻿using LineServiceSimulator.Simulation.Output;
+
+namespace BigBearPlastics
 {
     public class SimulationAnalyst : ISimulationAnalyst
     {
-        private Dictionary<int, Dictionary<string,int>> _machineSimData = new Dictionary<int, Dictionary<string, int>>();
+        private ISimulationResult _simulationResult;
+        public SimulationAnalyst(ISimulationResult simResult) {
+            _simulationResult = simResult;
+        }
+        private SimulationClock clock = new SimulationClock();
 
-        public void Visit(IMachine machine) {
-            _machineSimData[machine.ID].Add("Time",1);
+        public ISimulationResult FinalReport() {
+            return _simulationResult;
         }
 
-        public void Visit(ISimulatableServicer servicer) {
-            throw new NotImplementedException();
+        public void ExtractTickRecord(IMachine machine) {
+            _simulationResult.AddMachineData(machine.ID,clock.Time,machine.Performance.ExtractData());
         }
 
-        public void Visit(RunningState state) {
-            throw new NotImplementedException();
+        public void ExtractTickRecord(ISimulatableServicer servicer) {
+            _simulationResult.AddServicerData(clock.Time,servicer.Performance.ExtractData());
         }
 
-        public void Visit(IdleState state) {
-            throw new NotImplementedException();
+        public void ExtractTickRecord(RunningState state) {
+            //throw new NotImplementedException();
         }
 
-        public void Visit(ToolChangeState state) {
-            throw new NotImplementedException();
+        public void ExtractTickRecord(IdleState state) {
+            //throw new NotImplementedException();
         }
 
-        public void Visit(ShutdownState state) {
-            throw new NotImplementedException();
+        public void ExtractTickRecord(ToolChangeState state) {
+            //throw new NotImplementedException();
+        }
+
+        public void ExtractTickRecord(ShutdownState state) {
+            //throw new NotImplementedException();
         }
     }
 }

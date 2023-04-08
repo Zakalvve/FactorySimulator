@@ -1,4 +1,5 @@
 ﻿using BigBearPlastics;
+using LineServiceSimulator.Simulation.Output;
 
 namespace LineServiceSimulator
 {
@@ -13,16 +14,14 @@ namespace LineServiceSimulator
         }
 
         static async Task RunSimulation() {
-            FactorySimulation sim = new FactorySimulation(EightHours());
 
-            await sim.SimulateAsync();
+            ISimulation sim = Factory.CreateSimulation(SimulationClock.EightHours());
 
-            //use results
+            ISimulationResult data = await sim.SimulateAsync();
             Console.WriteLine("Simulation Complete");
-        }
 
-        static int EightHours() {
-            return 8 * 60 * 60;
+            //export results to json
+            await data.SaveAsJson(Directory.GetCurrentDirectory());
         }
     }
 }

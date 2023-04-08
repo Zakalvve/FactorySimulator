@@ -1,12 +1,29 @@
-﻿namespace BigBearPlastics
+﻿using LineServiceSimulator.Simulation.Output;
+
+namespace BigBearPlastics
 {
     //SRP: Responsible for the creation of all objects.
     public class Factory
     {
+        public static ISimulation CreateSimulation(int duration) {
+            return new FactorySimulation(duration,CreateSimulationAnalyst(),CreateAllSims());
+        }
+        public static List<IReportingSimulatable> CreateAllSims() {
+            List<IReportingSimulatable> sims = CreateAllMachines().Cast<IReportingSimulatable>().ToList();
+            sims.Add(GetServicer());
+            return sims;
+        }
+        public static ISimulationAnalyst CreateSimulationAnalyst() {
+            return new SimulationAnalyst(CreateSimulationResult());
+        }
+        public static ISimulationResult CreateSimulationResult() {
+            return new SimulationResult();
+        }
+
         public static ISimulatableServicer? GlobalServicerInstance = null;
         public static ISimulatableServicer GetServicer() {
             if (GlobalServicerInstance == null) {
-                GlobalServicerInstance = new FLT(new PriorityQueue<ServiceRequest,int>(), CreateLogger());
+                GlobalServicerInstance = new FLTModel(new PriorityQueue<ServiceRequest,int>(),CreateLogger(),CreateServicerPerformanceIndicators());
             }
             return GlobalServicerInstance;
         }
@@ -22,16 +39,24 @@
         }
 
         public static IContainer CreateContainerInverted(int maxFill) {
-            return new ContainerModel(maxFill, maxFill);
+            return new ContainerModel(maxFill,maxFill);
         }
 
-        public static IJobModel CreateJob(List<IPartModel> parts, int partsRequired, int ppInput, int ppOutput, int ppScrap, double pph) {
+        public static IJobModel CreateJob(List<IPartModel> parts,int partsRequired,int ppInput,int ppOutput,int ppScrap,double pph) {
             return new JobModel(parts,partsRequired,ppInput,ppOutput,ppScrap,pph);
         }
 
-        public static ISimulatableMachine CreateCNC(int id, int priority, Queue<IJobModel> jobs) {
+        public static ISimulatableMachine CreateCNC(int id,int priority,Queue<IJobModel> jobs) {
             IJobModel firstJob = jobs.Dequeue();
-            return new CNCModel(id, priority, jobs, firstJob, GetServicer(), CreateLogger(), CreateContainerInverted(firstJob.PartsPerInputContainer),CreateContainer(firstJob.PartsPerOutputContainer),CreateContainer(firstJob.ScrapPerScrapContainer));
+            return new CNCModel(id,priority,jobs,firstJob,GetServicer(),CreateLogger(),CreateMachinePerformanceIndicators(),CreateContainerInverted(firstJob.PartsPerInputContainer),CreateContainer(firstJob.PartsPerOutputContainer),CreateContainer(firstJob.ScrapPerScrapContainer));
+        }
+
+        public static IMachinePerformanceIndicators CreateMachinePerformanceIndicators() {
+            return new MachinePerformanceIndicators();
+        }
+
+        public static IServicerPerformanceIndicators CreateServicerPerformanceIndicators() {
+            return new ServicerPerformanceIndicators();
         }
 
         public static List<ISimulatableMachine> CreateAllMachines() {
@@ -54,14 +79,14 @@
                 { 10,7 }
             };
 
-            foreach(KeyValuePair<int, Queue<IJobModel>> entry in jobs) {
-                output.Add(CreateCNC(entry.Key, priorities[entry.Key], entry.Value));
+            foreach (KeyValuePair<int,Queue<IJobModel>> entry in jobs) {
+                output.Add(CreateCNC(entry.Key,priorities[entry.Key],entry.Value));
             }
 
             return output;
         }
 
-        public static Dictionary<int, Queue<IJobModel>> CreateAllJobs() {
+        public static Dictionary<int,Queue<IJobModel>> CreateAllJobs() {
             Dictionary<int,Queue<IJobModel>> allJobs = new Dictionary<int,Queue<IJobModel>>();
             allJobs.Add(1,new Queue<IJobModel>());
             allJobs.Add(2,new Queue<IJobModel>());

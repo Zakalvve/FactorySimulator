@@ -1,6 +1,4 @@
-﻿using BigBearPlastics;
-
-namespace LineServiceSimulator.Machines
+﻿namespace BigBearPlastics
 {
     public interface IServicableMachine
     {

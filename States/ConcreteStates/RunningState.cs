@@ -15,16 +15,15 @@
             StartNextPart();
         }
         //one tick of the simulation
-        public override void Tick()
-        {
+        public override void Tick() {
             _timeTillNextPart--;
-            _context.Uptime++;
-            if (_timeTillNextPart <= 0)
-            {
+            _context.Performance.Uptime++;
+            if (_timeTillNextPart <= 0) {
                 _context.CurrentJob.Parts.ForEach(part => {
                     _logger.LogSignedMessage($"Created new part {part.Name}");
                 });
-                
+
+                _context.Performance.TotalPartsProduced++;
                 //update job
                 _context.CurrentJob.CurrentPartsProduced++;
                 //place the part into the sillage
@@ -37,12 +36,12 @@
                 //no more parts, output container is full or scrap bin is full, job complete
                 if (_context.CurrentJob.IsComplete) {
                     _logger.LogSignedMessage("Job Complete");
-                    _context.ChangeState(new ToolChangeState(_context, _logger));
+                    _context.ChangeState(new ToolChangeState(_context,_logger));
                     return;
                 }
                 if (!_context.CanRun) {
                     //change state to idle
-                    _context.ChangeState(new IdleState(_context, _logger));
+                    _context.ChangeState(new IdleState(_context,_logger));
                     return;
                 }
 
@@ -52,7 +51,7 @@
         }
 
         public override void Record(ISimulationAnalyst analyst) {
-            analyst.Visit(this);
+            analyst.ExtractTickRecord(this);
         }
     }
 }

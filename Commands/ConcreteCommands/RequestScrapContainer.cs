@@ -1,6 +1,4 @@
-﻿using LineServiceSimulator.Machines;
-
-namespace BigBearPlastics
+﻿namespace BigBearPlastics
 {
     public class RequestScrapContainer : BaseCommand
     {

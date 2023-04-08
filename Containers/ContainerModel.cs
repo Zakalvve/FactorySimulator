@@ -2,9 +2,9 @@
 {
     internal class ContainerModel : IContainer
     {
-        public ContainerModel(int maxFill): this(maxFill, 0) { }
+        public ContainerModel(int maxFill) : this(maxFill,0) { }
 
-        public ContainerModel(int maxFill, int curFill) {
+        public ContainerModel(int maxFill,int curFill) {
             MaximumFillValue = maxFill;
             CurrentFillValue = curFill;
         }

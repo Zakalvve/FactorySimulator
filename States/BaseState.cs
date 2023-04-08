@@ -4,7 +4,7 @@
     {
         protected IMachine _context;
         protected IMessageLogger _logger;
-        public BaseState(IMachine context, IMessageLogger logger) {
+        public BaseState(IMachine context,IMessageLogger logger) {
             _context = context;
             _logger = logger;
         }

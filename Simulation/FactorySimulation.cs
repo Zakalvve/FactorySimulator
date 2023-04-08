@@ -1,48 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics.CodeAnalysis;
+using LineServiceSimulator.Simulation.Output;
 
 namespace BigBearPlastics
 {
-    public class FactorySimulation
+    public class FactorySimulation : ISimulation
     {
         private List<IReportingSimulatable> _sims;
         private int _simDuration;
-        public FactorySimulation(int duration/*More sim settings could go here (sim settings model?)*/) {
+        private ISimulationAnalyst _analyst;
+        private ISimulationResult? _data = null;
+
+        public FactorySimulation(int duration,ISimulationAnalyst analyst,List<IReportingSimulatable> sims) {
             _simDuration = duration;
+            _analyst = analyst;
+            _sims = sims;
         }
-        public Task SimulateAsync() {
+        public Task<ISimulationResult> SimulateAsync() {
             return Task.Run(Simulation);
         }
-        public void Simulate() {
-            Simulation();
+        public ISimulationResult Simulate() {
+            return Simulation();
         }
-        private void Simulation() {
-
-            InitializeSimulation();
-
+        private ISimulationResult Simulation() {
             RunSim();
-
-            CloseReport();
-        }
-        private void InitializeSimulation() {
-            _sims = Factory.CreateAllMachines().Cast<IReportingSimulatable>().ToList();
-            _sims.Add(Factory.GetServicer());
+            FinalReport(DataNotNull());
+            return _data;
         }
 
-        public void RunSim() {
+        private void RunSim() {
             for (int runTime = _simDuration; runTime > 0; runTime--) {
+                SimulationClock.CurrentTick++;
                 _sims.ForEach(sim => {
                     sim.Tick();
                 });
+                if (runTime % (60 * 5) == 0) {
+                    _sims.ForEach(sim => {
+                        sim.Record(_analyst);
+                    });
+                }
             }
+            _sims.ForEach(sim => {
+                sim.Record(_analyst);
+            });
         }
-        public void CloseReport() {
+
+        public void FinalReport([DoesNotReturnIf(false)] bool NotNull) {
             _sims.ForEach(sim => {
                 sim.CloseReport(_simDuration);
             });
+
+            _data = _analyst.FinalReport();
+
+            if (DataNotNull())
+                Console.WriteLine($"Report finalized {_data}");
+            else
+                throw new NullReferenceException("No data retrieved");
+
+        }
+
+        [MemberNotNullWhen(true,"_data")]
+        public bool DataNotNull() {
+            return _data != null;
         }
     }
 }

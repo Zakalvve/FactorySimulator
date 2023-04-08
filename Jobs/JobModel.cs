@@ -1,6 +1,7 @@
 ﻿namespace BigBearPlastics
 {
-    public class JobModel : IJobModel {
+    public class JobModel : IJobModel
+    {
         public JobModel(List<IPartModel> parts,int partsRequired,int ppInputContainer,int ppOutputContainer,int spScrapContainer,double pph) {
             Parts = parts;
             NumberOfPartsRequired = partsRequired;

@@ -2,7 +2,7 @@
 {
     public class ServiceRequest
     {
-        public ServiceRequest(RequestType rtype, ICommand command, int machineId) {
+        public ServiceRequest(RequestType rtype,ICommand command,int machineId) {
             rType = rtype;
             Command = command;
             MachineID = machineId;
@@ -34,7 +34,8 @@
         public int MachineID { get; set; }
     }
 
-    public enum RequestType {
+    public enum RequestType
+    {
         REPLACE_INPUT,
         REPLACE_OUTPUT,
         REPLACE_SCRAP
